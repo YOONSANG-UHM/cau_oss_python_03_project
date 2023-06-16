@@ -1,4 +1,14 @@
+"""
+사용자로부터 입력을 받아 print, filter, sort, exit의
+과정을 수행하는 모듈입니다.
+함수 start_process를 포함한다.
+"""
 def start_process(path):
+    """
+    path 경로의 파일로부터 프로그램을 실행하는 함수
+    Args:
+        path (string): 프로그램을 실행할 파일의 경로
+    """
     import file_manager
     import parking_spot_manager as ps_man
     str_list = file_manager.read_file(path)
@@ -48,8 +58,7 @@ def start_process(path):
             print(keywords)
             keyword = input('type keyword:')
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
+                spots = ps_man.sort_by_keyword(spots, keyword)
             else: print("invalid input")
         elif select == 4:
             print("Exit")
